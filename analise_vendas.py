@@ -8,17 +8,30 @@ Qual cliente mais gastou"""
 #%%
 
 import pandas as pd
-from pandas import DataFrame
+#from pandas import DataFrame
+
+
+
+def pmv(df : pd.Dataframe):
+
+        produtos_mais_vendidos = dsa_df.groupby('product')['quantity'].sum()
+        produtos_mais_vendidos = produtos_mais_vendidos.sort_values(ascending=False)
+        return print(produtos_mais_vendidos)
+        
+
+
+
 
 dsa_df = pd.read_csv(r"./vendas.csv")
 print("*************Tabela de vendas***************\n")
 print(dsa_df)
-#%%
-produtos_mais_vendidos = dsa_df.groupby('product')['quantity'].sum()
 
-produtos_mais_vendidos = produtos_mais_vendidos.sort_values(ascending=False)
+
+
+
 print("\n********Produtos mais vendidos*********")
-print(produtos_mais_vendidos)
+pmv()
+
 
 dsa_df['faturamento'] = dsa_df['price'] * dsa_df['quantity']
 
@@ -29,7 +42,6 @@ print("\n**********Faturamento do mês**********\n")
 print(faturamento_por_mes)
 
 
-
 dsa_df['total'] = dsa_df['price'] * dsa_df['quantity']
 cliente_mais_gastou = dsa_df.groupby('customer')['total'].sum()
 cliente_mais_gastou = cliente_mais_gastou.sort_values(ascending=False)
@@ -37,5 +49,7 @@ cliente_mais_gastou = cliente_mais_gastou.sort_values(ascending=False)
 print("\n********Cliente que mais gastou********")
 print(cliente_mais_gastou.head(1))
 
-# %%
+
 print('TEST')
+
+
