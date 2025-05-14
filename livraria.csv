@@ -1,0 +1,11 @@
+date,store,customer,book,price,quantity
+2025-01-10,Loja A,Ana,Python para Iniciantes,45.9,1
+2025-01-10,Loja B,Beto,Data Science com Python,89.0,2
+2025-01-12,Loja A,Ana,Python para Iniciantes,45.9,1
+2025-01-13,Loja B,Caio,Inteligência Artificial,120.0,1
+2025-01-15,Loja A,Diana,Python para Iniciantes,45.9,3
+2025-01-16,Loja C,Elaine,Data Science com Python,89.0,1
+2025-01-18,Loja C,Felipe,Inteligência Artificial,120.0,2
+2025-01-20,Loja B,Beto,Python para Iniciantes,45.9,2
+2025-01-22,Loja A,Ana,Inteligência Artificial,120.0,1
+2025-01-25,Loja C,Caio,Data Science com Python,89.0,3

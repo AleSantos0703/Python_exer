@@ -1,0 +1,7 @@
+order_id,customer,product,price,quantity,date
+1001,João,Teclado,150,1,2024-12-01
+1002,Maria,Mouse,80,2,2024-12-01
+1003,João,Monitor,1200,1,2024-12-03
+1004,Lucas,Mouse,80,1,2024-12-04
+1005,Maria,Teclado,150,1,2025-01-02
+1006,Ana,Monitor,1200,2,2025-01-04
