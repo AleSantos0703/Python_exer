@@ -5,19 +5,33 @@ Quais produtos mais venderam
 Qual foi o faturamento total por mês
 
 Qual cliente mais gastou"""
+
 #%%
-
 import pandas as pd
-#from pandas import DataFrame
 
 
 
-def pmv(df : pd.Dataframe):
 
-        produtos_mais_vendidos = dsa_df.groupby('product')['quantity'].sum()
+def pmv(df : pd.DataFrame):
+        produtos_mais_vendidos = df.groupby('product')['quantity'].sum()
         produtos_mais_vendidos = produtos_mais_vendidos.sort_values(ascending=False)
         return print(produtos_mais_vendidos)
         
+
+
+def fpm(df : pd.DataFrame):
+        df['faturamento'] = df['price'] * df['quantity']
+        df['date'] = pd.to_datetime(df['date'])
+        faturamento_por_mes = df.groupby(df['date'].dt.to_period('M'))['faturamento'].sum()
+        return print(faturamento_por_mes)
+
+
+
+def cmg(df : pd.DataFrame):
+        dsa_df['total'] = dsa_df['price'] * dsa_df['quantity']
+        cliente_mais_gastou = dsa_df.groupby('customer')['total'].sum()
+        cliente_mais_gastou = cliente_mais_gastou.sort_values(ascending=False)
+        return cliente_mais_gastou.head(1)
 
 
 
@@ -28,28 +42,26 @@ print(dsa_df)
 
 
 
-
 print("\n********Produtos mais vendidos*********")
-pmv()
+pmv(dsa_df)
 
 
-dsa_df['faturamento'] = dsa_df['price'] * dsa_df['quantity']
 
-dsa_df['date'] = pd.to_datetime(dsa_df['date'])
-faturamento_por_mes = dsa_df.groupby(dsa_df['date'].dt.to_period('M'))['faturamento'].sum()
 
 print("\n**********Faturamento do mês**********\n")
-print(faturamento_por_mes)
+fpm(dsa_df)
 
 
-dsa_df['total'] = dsa_df['price'] * dsa_df['quantity']
-cliente_mais_gastou = dsa_df.groupby('customer')['total'].sum()
-cliente_mais_gastou = cliente_mais_gastou.sort_values(ascending=False)
 
 print("\n********Cliente que mais gastou********")
-print(cliente_mais_gastou.head(1))
+cmg(dsa_df)
 
 
-print('TEST')
 
 
+
+
+
+
+
+# %%
